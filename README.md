@@ -18,12 +18,8 @@ https://github.com/ncbi/blast_plus_docs/blob/master/README.md#set-up-your-gcp-ac
    * Open the External IP dropdown and select "Create IP Address"
        * name the IP address anything you want. This can later be used as a static IP address for your project.
        * click "Done" when completed.
-* In the **Automation** section, paste the following script:
-```
-#TODO
-```
 
-Continue through the tutorial to open the GCP command shell
+Continue through the tutorial to **open the GCP command shell**
 
 ### 2) Install Docker following the same tutorial
 
@@ -38,11 +34,6 @@ cd ; mkdir blastdb tempfastadb diamonddb queries fasta blastresults diamondresul
 
 ### 4) Create BLAST and DIAMOND containers from DockerHub
 ```
-docker run ncbi/blast
-docker run buchfink/diamond
-docker images
-```
-
 docker run \
     -v $HOME/blastdb:/blast/blastdb:rw \
     -v $HOME/fasta:/blast/fasta:ro \
@@ -50,23 +41,15 @@ docker run \
     -v $HOME/queries:/blast/queries:rw \
     -v $HOME/blastresults:/blast/blastresults:rw \
     -t -d --name blast ncbi/blast
-
-blast can be opened and running in the background, but diamond does not have support for that, so we will have to create new image each time we want to run a diamond command, however, that will not be costly as diamond images are very small and all of the databases will be stored in our VM not in the container.
-
-docker run \
-    -v $HOME/diamonddb:/diamond/diamonddb:rw \
-    -v $HOME/tempfastadb:/diamond/tempfastadb:rw \
-    -v $HOME/queries:/diamond/queries:rw \
-    -v $HOME/diamondresults:/diamond/diamondresults:rw \
-    -t -d --name diamond buchfink/diamond
+docker run buchfink/diamond
+```
+Note: blast can be opened and running in the background, but diamond does not have support for that, so we will have to create new image each time we want to run a diamond command; however, that will not be too costly as diamond images are very small and all of the databases will be stored in our VM, not in the container.
 
 
 ### 5) Access BLAST databases
 
 To see the available databases:
 ```
-docker run --rm ncbi/blast update_blastdb.pl --showall pretty --source gcp
-
 docker exec blast update_blastdb.pl --showall pretty --source gcp
 ```
 
@@ -75,31 +58,20 @@ docker exec blast update_blastdb.pl --showall pretty --source gcp
 To download your chosen database:
 
 ```
-docker run --rm -v $HOME/blastdb:/blast/blastdb:rw -w /blast/blastdb ncbi/blast update_blastdb.pl --source gcp [DATABASE]
-
 docker exec -w /blast/blastdb blast update_blastdb.pl --source gcp [DATABASE] 
 ```
 
-where [DATABASE] is the name of one of the databases above that you want to download
+where `[DATABASE]` is the name of one of the databases above that you want to download
 
 Now, if you cd into the blastdb folder, you should see your downloaded database
 
 ### 6) Convert BLAST database to DIAMOND database
 
 ```
-docker run --rm -v $HOME/blastdb:/blast/blastdb:rw -v $HOME/tempfastadb:/blast/tempfastadb:rw -w /blast/blastdb ncbi/blast blastdbcmd -entry all -db [DATABASE] > ../tempfastadb/fasta_[DATABASE].fa
-
-docker run --rm -v $HOME/tempfastadb:/diamond/tempfastadb -v $HOME/diamonddb:/blast/diamonddb:rw -w /diamond/diamonddb  buchfink/diamond diamond makedb -d [DATABASE] --in fastadb.fa > ../diamonddb/[DATABASE].dmnd
-```
-
-```
-docker exec  blast blastdbcmd -entry all -db pdb_v5 > tempfastadb/fasta_pdb_v5.fa
-
-docker run --rm -v $HOME/tempfastadb:/diamond/tempfastadb -v $HOME/diamonddb:/diamond/diamonddb:rw  buchfink/diamond diamon
-d makedb -d pdb_v5 --in /diamond/tempfastadb/fasta_pdb_v5.fa > diamonddb/pdb_v5.dmnd
-
+# Convert BLAST database into FASTA format
 docker exec blast blastdbcmd -entry all -db [DATABASE] > tempfastadb/fasta_[DATABASE].fa
 
+# Convert FASTA file into DIAMOND database
 docker run --rm -v $HOME/tempfastadb:/diamond/tempfastadb -v $HOME/diamonddb:/diamond/diamonddb:rw  buchfink/diamond diamon
 d makedb -d [DATABASE] --in /diamond/tempfastadb/fasta_[DATABASE].fa > diamonddb/[DATABASE].dmnd
 ```
@@ -134,18 +106,15 @@ gcloud beta compute ssh [USER@]INSTANCE
 ```
 For more info: https://cloud.google.com/sdk/gcloud/reference/beta/compute/ssh
 
-The Google Cloud SDK installation includes PuTTy, which is used to ssh into the VM. You can type `exit` to exit
+The Google Cloud SDK installation includes PuTTy, which is used to ssh into the VM. You can type `exit` to exit PuTTy and return to your command prompt.
 
-Back in your terminal, you can transfer your query files to your virtual machine using:
+Back in your command prompt, you can transfer your query files to your virtual machine using:
 
 https://cloud.google.com/compute/docs/instances/transfer-files
-
-gcloud compute scp samples.fasta kellyfinke1201@diamond-instance:~   
-
 ```
 gcloud beta compute scp [PATH TO FILE] [USER@]INSTANCE:DESTINATION
 
-# For example, using my gmail account name and the name of my instance (From the directory where protein_queries.fasta is stored, though you could also just give the path to you sequences):
+# For example, using my gmail account name and the name of my instance (called from the directory where protein_queries.fasta is stored, though you could also just give the path to you sequences):
 # gcloud compute scp protein_queries.fasta kellyfinke1201@blast-diamond-instance:queries/protein_queries.fasta
 ```
 
