@@ -29,7 +29,7 @@ Make sure you exit and ssh back in for the installation to take effect! The *opt
 
 ### 3) Set up file structure
 ```
-cd ; mkdir blastdb tempfastadb diamonddb queries fasta blastresults diamondresults blastdb_custom
+cd ; mkdir blastdb diamonddata queries fasta blastresults
 ```
 
 ### 4) Create BLAST and DIAMOND containers from DockerHub
@@ -37,13 +37,13 @@ cd ; mkdir blastdb tempfastadb diamonddb queries fasta blastresults diamondresul
 docker run \
     -v $HOME/blastdb:/blast/blastdb:rw \
     -v $HOME/fasta:/blast/fasta:ro \
-    -v $HOME/tempfastadb:/blast/tempfastadb:rw \
+    -v $HOME/diamonddata:/blast/diamonddata:rw \
     -v $HOME/queries:/blast/queries:rw \
     -v $HOME/blastresults:/blast/blastresults:rw \
     -t -d --name blast ncbi/blast
 docker run buchfink/diamond
 ```
-Note: blast can be opened and running in the background, but diamond does not have support for that, so we will have to create new image each time we want to run a diamond command; however, that will not be too costly as diamond images are very small and all of the databases will be stored in our VM, not in the container.
+Note: blast can be opened and running in the background, but diamond does not have support for that, so we will have to create new image each time we want to run a diamond command; however, that will not be too costly as diamond images are very small and all of the databases will be stored in our VM, not in the container. To further simplify the diamond commands, all diamond-related files will be stored in the diamonddata directory.
 
 
 ### 5) Access BLAST databases
@@ -69,11 +69,13 @@ Now, if you cd into the blastdb folder, you should see your downloaded database
 
 ```
 # Convert BLAST database into FASTA format
-docker exec blast blastdbcmd -entry all -db [DATABASE] > tempfastadb/fasta_[DATABASE].fa
+docker exec blast blastdbcmd -entry all -db [DATABASE] > diamonddata/fasta_[DATABASE].fa
+
 
 # Convert FASTA file into DIAMOND database
-docker run --rm -v $HOME/tempfastadb:/diamond/tempfastadb -v $HOME/diamonddb:/diamond/diamonddb:rw  buchfink/diamond diamon
-d makedb -d [DATABASE] --in /diamond/tempfastadb/fasta_[DATABASE].fa > diamonddb/[DATABASE].dmnd
+cd diamonddata
+docker run --rm buchfink/diamond diamond makedb -d [DATABASE] --in fasta_[DATABASE].fa 
+cd ..
 ```
 
 Now your databases are ready to use!
@@ -131,11 +133,8 @@ You can run the following from either your local machine via ssh or from the GCP
 docker exec blast blastp -query /blast/queries/[QUERY FILE] -db [DATABASE] -out /blast/blastresults/[OUT].out
 
 # Run DIAMOND alignment
-
-docker run \
-    -v $HOME/queries:/diamond/queries:ro \
-    -v $HOME/diamondresults:/diamond/diamondresults:rw \
-    buchfink/diamond diamond blastp -d pdb_v5 -q queries/protein_queries.fasta -o diamond_proteins.m8
+cd diamonddata
+docker run --rm buchfink/diamond diamond blastp -d pdb_v5 -q queries/protein_queries.fasta -o diamond_proteins.m8
 ```
 
 ## Summary: Full Script
@@ -158,7 +157,7 @@ cd ; mkdir blastdb tempfastadb diamonddb queries fasta blastresults diamondresul
 docker run \
     -v $HOME/blastdb:/blast/blastdb:rw \
     -v $HOME/fasta:/blast/fasta:ro \
-    -v $HOME/tempfastadb:/blast/tempfastadb:rw \
+    -v $HOME/diamonddata:/blast/diamonddata:rw \
     -v $HOME/queries:/blast/queries:rw \
     -v $HOME/blastresults:/blast/blastresults:rw \
     -t -d --name blast ncbi/blast
@@ -169,13 +168,9 @@ docker run buchfink/diamond
 docker exec blast update_blastdb.pl --showall pretty --source gcp
 docker exec -w /blast/blastdb blast update_blastdb.pl --source gcp pdb_v5
 
-docker exec  blast blastdbcmd -entry all -db pdb_v5 > tempfastadb/fasta_pdb_v5.fa
+docker exec blast blastdbcmd -entry all -db pdb_v5 > diamonddata/fasta_pdb_v5.fa
 
-docker run --rm \
-   -v $HOME/tempfastadb:/diamond/tempfastadb:ro \
-   -v $HOME/diamonddb:/diamond/diamonddb:rw \
-   buchfink/diamond \
-   diamond makedb -d pdb_v5 --in /diamond/tempfastadb/fasta_pdb_v5.fa > diamonddb/pdb_v5.dmnd
+docker run --rm buchfink/diamond diamond makedb -d pdb_v5 --in fasta_pdb_v5.fa
 ```
 Now, from your local machine, cd to the directory where you saved protein_queries.fasta and run the following:
 ```
@@ -189,15 +184,10 @@ You can run the following either through the GCP command shell or through ssh on
 ```
 docker exec blast blastp -query /blast/queries/protein_queries.fasta -db pdb_v5 -out /blast/blastresults/blast_proteins.out
 
-docker run --rm \
-   -v $HOME/queries:/diamond/queries:ro \
-   -v $HOME/diamonddb:/diamond/diamonddb:rw \
-   -v $HOME/diamondresults:/diamond/diamondresults:rw \
-   -w /diamond/diamonddb \
-   buchfink/diamond \
-   diamond blastp -d pdb_v5 -q /diamond/queries/protein_queries.fasta -o /diamond/diamond_proteins.m8
+cp queries/protein_queries.fasta diamonddata/protein_queries.fasta
+cd diamonddata
+docker run --rm buchfink/diamond diamond blastp -d pdb_v5 -q protein_queries.fasta -o diamond_proteins.m8
 ```
-
 
 When you're done, remember to stop your blast container using `docker stop blast` and to stop your VM instance (or else you'll get charged for all the time you're not using it!)
 
