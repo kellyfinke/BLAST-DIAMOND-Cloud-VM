@@ -201,11 +201,13 @@ docker run --rm \
 
 When you're done, remember to stop your blast container using `docker stop blast` and to stop your VM instance (or else you'll get charged for all the time you're not using it!)
 
-### 10) Using a startup script
+## Bonus Options
+
+### Using a startup script
 If you want any of this to run automatically when you start up your VM, you can use a startup script:
 https://cloud.google.com/compute/docs/startupscript
 
-### 11) Using Service Accounts
+### Using Service Accounts
 
 If you want your VM to be accessible by others, you can create a service account and attach it to your VM following these instructions: https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?authuser=1
 
