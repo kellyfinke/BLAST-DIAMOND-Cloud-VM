@@ -94,7 +94,8 @@ However, we are going to use some sample sequences stored on our local machine!
 
 First, install Google Cloud SDK in your terminal, following [these instructions](https://cloud.google.com/sdk/docs/quickstarts) for your OS.
 
-Follow the prompts to install the SDK and make sure to connect it to the project where your VM is located and the zone you selected when creating your VM.
+Follow the prompts to install the SDK and make sure to connect it to the project where your VM is located 
+and the zone you selected when creating your VM.
 
 You can ssh into your VM from your local machine using:
 ```
@@ -105,13 +106,15 @@ gcloud beta compute ssh [USER@]INSTANCE
 ```
 [For more info](https://cloud.google.com/sdk/gcloud/reference/beta/compute/ssh)
 
-The Google Cloud SDK installation includes PuTTy, which is used to ssh into the VM. You can type `exit` to exit PuTTy and return to your command prompt.
+The Google Cloud SDK installation includes PuTTy, which is used to ssh into the VM. You can type `exit`
+to exit PuTTy and return to your command prompt.
 
 Back in your command prompt, you can [transfer your query files to your virtual machine.](https://cloud.google.com/compute/docs/instances/transfer-files)
 ```
 gcloud beta compute scp [PATH TO FILE] [USER@]INSTANCE:DESTINATION
 
-# For example, using my gmail account name and the name of my instance (called from the directory where protein_queries.fasta is stored, though you could also just give the path to you sequences):
+# For example, using my gmail account name and the name of my instance (called from the directory where
+# protein_queries.fasta is stored, though you could also just give the path to you sequences):
 # gcloud compute scp protein_queries.fasta kellyfinke1201@blast-diamond-instance:queries/protein_queries.fasta
 ```
 
@@ -123,7 +126,8 @@ You can run the following from either your local machine via ssh or from the GCP
 
 ```
 # Run BLAST alignment
-# Where [QUERY FILE] contains the sequences in .fasta, .fa, .faa format and [OUT] is the name you want for the output
+# Where [QUERY FILE] contains the sequences in .fasta, .fa, .faa format 
+# and [OUT] is the name you want for the output
 
 docker exec blast blastp -query /blast/queries/[QUERY FILE] -db [DATABASE] -out /blast/blastresults/[OUT].out
 
@@ -187,7 +191,8 @@ gcloud compute scp protein_queries.fasta [USERNAME]@blast-diamond-instance:queri
 ```
 You can run the following either through the GCP command shell or through ssh on your local machine (using `gcloud beta compute ssh` as shown above)
 ```
-docker exec blast blastp -query /blast/queries/protein_queries.fasta -db pdb_v5 -out /blast/blastresults/blast_proteins.out
+docker exec blast blastp -query /blast/queries/protein_queries.fasta \
+   -db pdb_v5 -out /blast/blastresults/blast_proteins.out
 
 cp queries/protein_queries.fasta diamonddata/protein_queries.fasta
 cd diamonddata
