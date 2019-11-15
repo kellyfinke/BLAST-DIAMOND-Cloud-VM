@@ -28,7 +28,7 @@ Make sure you exit and ssh back in for the installation to take effect! The *opt
 cd ; mkdir blastdb diamonddata queries fasta blastresults
 ```
 
-### 4) Create BLAST and DIAMOND containers from DockerHub
+### 4) Create BLAST container from DockerHub
 ```
 docker run \
     -v $HOME/blastdb:/blast/blastdb:rw \
@@ -37,7 +37,6 @@ docker run \
     -v $HOME/queries:/blast/queries:rw \
     -v $HOME/blastresults:/blast/blastresults:rw \
     -t -d --name blast ncbi/blast
-docker run buchfink/diamond
 ```
 Note: blast can be opened and running in the background, but diamond does not have support for that, so we will have to create
 a new image each time we want to run a diamond command; however, that will not be too costly as diamond images are very small
@@ -171,19 +170,17 @@ docker run \
     -v $HOME/blastresults:/blast/blastresults:rw \
     -t -d --name blast ncbi/blast
 
-docker run buchfink/diamond
-
-
 docker exec blast update_blastdb.pl --showall pretty --source gcp
 docker exec -w /blast/blastdb blast update_blastdb.pl --source gcp pdb_v5
 
 docker exec blast blastdbcmd -entry all -db pdb_v5 > diamonddata/fasta_pdb_v5.fa
 
+cd diamonddata
 docker run --rm buchfink/diamond diamond makedb -d pdb_v5 --in fasta_pdb_v5.fa
 ```
 Now, from your local machine, cd to the directory where you saved protein_queries.fasta and run the following:
 ```
-# Just for fun! You can ssh into your VM instance ({USERNAME] is your GCP account username): 
+# Just for fun! You can ssh into your VM instance ([USERNAME] is your GCP account username): 
 gcloud beta compute ssh [USERNAME]@blast-diamond-instance
 
 # To actually transfer the file:
