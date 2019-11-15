@@ -161,7 +161,7 @@ exit
 ```
 (Exit and SSH back in for changes to take effect)
 ```
-cd ; mkdir blastdb tempfastadb diamonddb queries fasta blastresults diamondresults blastdb_custom
+cd ; mkdir blastdb diamonddata queries fasta blastresults
 
 docker run \
     -v $HOME/blastdb:/blast/blastdb:rw \
