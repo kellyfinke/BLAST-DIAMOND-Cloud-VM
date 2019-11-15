@@ -137,6 +137,16 @@ cd diamonddata
 docker run --rm buchfink/diamond diamond blastp -d pdb_v5 -q queries/protein_queries.fasta -o diamond_proteins.m8
 ```
 
+### 10) Send files back to your local machine
+
+In your local command prompt, simply use the reverse of the command you used to transfer your queries to the cloud:
+```
+gcloud compute scp --recurse [INSTANCE_NAME]:[REMOTE_DIR] [LOCAL_DIR]
+
+# For our example:
+# gcloud compute scp --recurse kellyfinke1201@blast-diamond-instance:/results /results
+```
+
 ## Summary: Full Script
 
 Here are all the commands we ran in order (after creating the VM as described in step 1, which we named 'blast-diamond-instance' in the example below). For our example, we are using pdb_v5 as our database and two sample sequences stored in protein_queries.fasta in this repository for you to download for testing.
@@ -187,6 +197,10 @@ docker exec blast blastp -query /blast/queries/protein_queries.fasta -db pdb_v5 
 cp queries/protein_queries.fasta diamonddata/protein_queries.fasta
 cd diamonddata
 docker run --rm buchfink/diamond diamond blastp -d pdb_v5 -q protein_queries.fasta -o diamond_proteins.m8
+```
+From the local machine:
+```
+gcloud compute scp --recurse kellyfinke1201@blast-diamond-instance:/results /results
 ```
 
 When you're done, remember to stop your blast container using `docker stop blast` and to stop your VM instance (or else you'll get charged for all the time you're not using it!)
