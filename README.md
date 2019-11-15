@@ -2,9 +2,7 @@
 Instructions for running BLAST and DIAMOND on a GCP VM instance
 
 
-### 1) Set up your GCP account and VM instance following these instuctions
-https://github.com/ncbi/blast_plus_docs/blob/master/README.md#set-up-your-gcp-account-and-create-a-vm-for-analysis
-
+### 1) Set up your GCP account and VM instance following [these instuctions](https://github.com/ncbi/blast_plus_docs/blob/master/README.md#set-up-your-gcp-account-and-create-a-vm-for-analysis)
 
 * When creating your virtual machine, use the following settings:
     * Machine Type: **16 vCPU, 104 GB memory, n1-highmem-16*
@@ -21,9 +19,7 @@ https://github.com/ncbi/blast_plus_docs/blob/master/README.md#set-up-your-gcp-ac
 
 Continue through the tutorial to **open the GCP command shell**
 
-### 2) Install Docker following the same tutorial
-
-https://github.com/ncbi/blast_plus_docs/blob/master/README.md#step-1-install-docker
+### 2) [Install Docker following the same tutorial](https://github.com/ncbi/blast_plus_docs/blob/master/README.md#step-1-install-docker)
 
 Make sure you exit and ssh back in for the installation to take effect! The *optional* sections following this instruction offer helpful information about using docker.
 
@@ -43,7 +39,10 @@ docker run \
     -t -d --name blast ncbi/blast
 docker run buchfink/diamond
 ```
-Note: blast can be opened and running in the background, but diamond does not have support for that, so we will have to create new image each time we want to run a diamond command; however, that will not be too costly as diamond images are very small and all of the databases will be stored in our VM, not in the container. To further simplify the diamond commands, all diamond-related files will be stored in the diamonddata directory.
+Note: blast can be opened and running in the background, but diamond does not have support for that, so we will have to create
+a new image each time we want to run a diamond command; however, that will not be too costly as diamond images are very small
+and all of the databases will be stored in our VM, not in the container. To further simplify the diamond commands, all 
+diamond-related files will be stored in the diamonddata directory.
 
 
 ### 5) Access BLAST databases
@@ -93,9 +92,7 @@ However, we are going to use some sample sequences stored on our local machine!
 
 ### 8) Upload files from local machine
 
-First, install Google Cloud SDK in your terminal, following these instructions for your OS:
-
-https://cloud.google.com/sdk/docs/quickstarts
+First, install Google Cloud SDK in your terminal, following [these instructions](https://cloud.google.com/sdk/docs/quickstarts) for your OS.
 
 Follow the prompts to install the SDK and make sure to connect it to the project where your VM is located and the zone you selected when creating your VM.
 
@@ -106,13 +103,11 @@ gcloud beta compute ssh [USER@]INSTANCE
 # For example, using my gmail account name and the name of my instance:
 # gcloud beta compute ssh kellyfinke1201@blast-diamond-instance
 ```
-For more info: https://cloud.google.com/sdk/gcloud/reference/beta/compute/ssh
+[For more info](https://cloud.google.com/sdk/gcloud/reference/beta/compute/ssh)
 
 The Google Cloud SDK installation includes PuTTy, which is used to ssh into the VM. You can type `exit` to exit PuTTy and return to your command prompt.
 
-Back in your command prompt, you can transfer your query files to your virtual machine using:
-
-https://cloud.google.com/compute/docs/instances/transfer-files
+Back in your command prompt, you can [transfer your query files to your virtual machine.](https://cloud.google.com/compute/docs/instances/transfer-files)
 ```
 gcloud beta compute scp [PATH TO FILE] [USER@]INSTANCE:DESTINATION
 
@@ -208,11 +203,11 @@ When you're done, remember to stop your blast container using `docker stop blast
 ## Bonus Options
 
 ### Using a startup script
-If you want any of this to run automatically when you start up your VM, you can use a startup script:
-https://cloud.google.com/compute/docs/startupscript
+If you want any of this to run automatically when you start up your VM, you can [use a startup script.](https://cloud.google.com/compute/docs/startupscript)
 
 ### Using Service Accounts
 
-If you want your VM to be accessible by others, you can create a service account and attach it to your VM following these instructions: https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?authuser=1
+If you want your VM to be accessible by others, you can create a service account and attach it to your VM
+[following these instructions.](https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?authuser=1)
 
 Then, when using gcloud compute ssh or gcloud compute scp, you simply use the service account name instead of your user name and use the corresponding key (produced when you create the service account) to access the VM.
