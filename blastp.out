@@ -1,0 +1,593 @@
+BLASTP 2.9.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: PDB protein database
+           110,698 sequences; 28,572,478 total letters
+
+
+
+Query= 
+Length=54
+                                                                      Score        E
+Sequences producing significant alignments:                          (Bits)     Value
+
+5EX2_A Chain A, Crystal Structure Of Cyclophilin Aquacyp293 From ...  24.6       8.5  
+
+
+>5EX2_A Chain A, Crystal Structure Of Cyclophilin Aquacyp293 From Hirschia 
+Baltica
+ 5EX2_B Chain B, Crystal Structure Of Cyclophilin Aquacyp293 From Hirschia 
+Baltica
+Length=271
+
+ Score = 24.6 bits (52),  Expect = 8.5, Method: Composition-based stats.
+ Identities = 12/42 (29%), Positives = 21/42 (50%), Gaps = 1/42 (2%)
+
+Query  5    SAMPLEPROTEI-NSEQUENCESWITHMATCHESINTHEPDB  45
+            +  P+E R  E+ N  + +  ESW+ H A       T++P+ 
+Sbjct  125  NGFPIETRQDELANYSEDKRVESWMPHCAGVVSMARTNDPNS  166
+
+
+
+Lambda      K        H        a         alpha
+   0.309    0.118    0.358    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 719441240
+
+
+Query= sequence A
+
+Length=160
+                                                                      Score        E
+Sequences producing significant alignments:                          (Bits)     Value
+
+6UMM_E Chain E, ESX-3 secretion system protein EccC3                  314        4e-108
+6SGW_F Chain F, ESX-3 secretion system protein EccC3                  314        4e-108
+6SGZ_J Chain J, ESX-3 secretion system protein EccC3                  290        3e-99 
+2JOE_A Chain A, NMR Structure of E. Coli YehR Protein. Northeast ...  28.1       4.0   
+3EOI_A Chain A, PilM                                                  27.7       5.0   
+
+
+>6UMM_E Chain E, ESX-3 secretion system protein EccC3
+ 6UMM_J Chain J, ESX-3 secretion system protein EccC3
+Length=403
+
+ Score = 314 bits (805),  Expect = 4e-108, Method: Compositional matrix adjust.
+ Identities = 160/160 (100%), Positives = 160/160 (100%), Gaps = 0/160 (0%)
+
+Query  1    ATALYRGGDNKMRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIP  60
+            ATALYRGGDNKMRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIP
+Sbjct  81   ATALYRGGDNKMRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIP  140
+
+Query  61   GTRRQWERDPRDRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTV  120
+            GTRRQWERDPRDRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTV
+Sbjct  141  GTRRQWERDPRDRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTV  200
+
+Query  121  RDAPTGLDVAKLARITVIGEADEARAAIRAWIAQAVTWHD  160
+            RDAPTGLDVAKLARITVIGEADEARAAIRAWIAQAVTWHD
+Sbjct  201  RDAPTGLDVAKLARITVIGEADEARAAIRAWIAQAVTWHD  240
+
+
+>6SGW_F Chain F, ESX-3 secretion system protein EccC3
+ 6SGW_J Chain J, ESX-3 secretion system protein EccC3
+ 6SGX_F Chain F, ESX-3 secretion system protein EccC3
+Length=401
+
+ Score = 314 bits (805),  Expect = 4e-108, Method: Compositional matrix adjust.
+ Identities = 160/160 (100%), Positives = 160/160 (100%), Gaps = 0/160 (0%)
+
+Query  1    ATALYRGGDNKMRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIP  60
+            ATALYRGGDNKMRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIP
+Sbjct  80   ATALYRGGDNKMRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIP  139
+
+Query  61   GTRRQWERDPRDRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTV  120
+            GTRRQWERDPRDRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTV
+Sbjct  140  GTRRQWERDPRDRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTV  199
+
+Query  121  RDAPTGLDVAKLARITVIGEADEARAAIRAWIAQAVTWHD  160
+            RDAPTGLDVAKLARITVIGEADEARAAIRAWIAQAVTWHD
+Sbjct  200  RDAPTGLDVAKLARITVIGEADEARAAIRAWIAQAVTWHD  239
+
+
+>6SGZ_J Chain J, ESX-3 secretion system protein EccC3
+Length=343
+
+ Score = 290 bits (741),  Expect = 3e-99, Method: Compositional matrix adjust.
+ Identities = 149/149 (100%), Positives = 149/149 (100%), Gaps = 0/149 (0%)
+
+Query  12   MRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIPGTRRQWERDPR  71
+            MRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIPGTRRQWERDPR
+Sbjct  32   MRTEEVDAERADYLRYLSVVRDNVRAHAAEQRAALEWSHPEPEVLATIPGTRRQWERDPR  91
+
+Query  72   DRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTVRDAPTGLDVAK  131
+            DRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTVRDAPTGLDVAK
+Sbjct  92   DRDFLVLRAGRHDVPLDAALKVKDTADEIDLEPVAHSALRGLLDVQRTVRDAPTGLDVAK  151
+
+Query  132  LARITVIGEADEARAAIRAWIAQAVTWHD  160
+            LARITVIGEADEARAAIRAWIAQAVTWHD
+Sbjct  152  LARITVIGEADEARAAIRAWIAQAVTWHD  180
+
+
+>2JOE_A Chain A, NMR Structure of E. Coli YehR Protein. Northeast Structural 
+Genomics Target ER538.
+Length=139
+
+ Score = 28.1 bits (61),  Expect = 4.0, Method: Compositional matrix adjust.
+ Identities = 11/33 (33%), Positives = 20/33 (61%), Gaps = 0/33 (0%)
+
+Query  100  IDLEPVAHSALRGLLDVQRTVRDAPTGLDVAKL  132
+            ID+E V   AL+G+  +  +  DA  G+ +A++
+Sbjct  86   IDMEKVDFKALQGISGINVSAEDAKKGITMAQM  118
+
+
+>3EOI_A Chain A, PilM
+ 3EOI_B Chain B, PilM
+Length=124
+
+ Score = 27.7 bits (60),  Expect = 5.0, Method: Compositional matrix adjust.
+ Identities = 12/33 (36%), Positives = 22/33 (67%), Gaps = 1/33 (3%)
+
+Query  13  RTEEVDAERADYLRYLSVVRDNVRAHAAEQRAA  45
+           +T E+  + AD++RY++ + D +  H  E+RAA
+Sbjct  10  QTAEITQQAADFIRYMNAINDYLYQH-PERRAA  41
+
+
+
+Lambda      K        H        a         alpha
+   0.319    0.133    0.395    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 1173650920
+
+
+Query= sequence B
+
+Length=80
+                                                                      Score        E
+Sequences producing significant alignments:                          (Bits)     Value
+
+6UBN_A Chain A, Quinoprotein glycine oxidase                          165        6e-49
+6UBR_B Chain B, Uncharacterized protein                               165        6e-49
+6UFQ_A Chain A, Glycine Oxidase GoxA                                  165        6e-49
+6UC1_C Chain C, Uncharacterized protein GoxA                          164        6e-49
+6BYW_B Chain B, Structure of GoxA from Pseudoalteromonas luteovio...  164        6e-49
+6IWT_A Chain A, Pmethyltransferase pCOMT-S                            29.3       0.41 
+2I5E_A Chain A, Crystal Structure Of A Protein Of Unknown Functio...  28.1       1.1  
+3WFI_A Chain A, The Crystal Structure Of D-mandelate Dehydrogenase    27.7       1.7  
+1C27_A Chain A, E. Coli Methionine Aminopeptidase:norleucine Phos...  27.3       1.9  
+2MAT_A Chain A, E.COLI METHIONINE AMINOPEPTIDASE AT 1.9 ANGSTROM ...  27.3       1.9  
+3MAT_A Chain A, E.COLI METHIONINE AMINOPEPTIDASE TRANSITION-STATE...  27.3       1.9  
+4MAT_A Chain A, E.COLI METHIONINE AMINOPEPTIDASE HIS79ALA MUTANT      27.3       1.9  
+3FHM_A Chain A, Crystal Structure Of The Cbs-Domain Containing Pr...  25.8       7.0  
+2GTX_A Chain A, Structural Basis of Catalysis by Mononuclear Meth...  25.4       8.4  
+2P99_A Chain A, E. Coli Methionine Aminopeptidase Monometalated W...  25.4       8.4  
+2P98_A Chain A, E. Coli Methionine Aminopeptidase Monometalated W...  25.4       8.4  
+2GG0_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors  25.4       8.4  
+2GU4_A Chain A, E. Coli Methionine Aminopeptidase In Complex With...  25.4       8.4  
+1XNZ_A Chain A, Crystal Structure Of Mn(Ii) Form Of E. Coli. Meth...  25.4       8.4  
+4A6V_A Chain A, METHIONINE AMINOPEPTIDASE                             25.4       8.4  
+
+
+>6UBN_A Chain A, Quinoprotein glycine oxidase
+ 6UBN_B Chain B, Quinoprotein glycine oxidase
+ 6UBN_C Chain C, Quinoprotein glycine oxidase
+ 6UBN_D Chain D, Quinoprotein glycine oxidase
+Length=816
+
+ Score = 165 bits (417),  Expect = 6e-49, Method: Compositional matrix adjust.
+ Identities = 80/80 (100%), Positives = 80/80 (100%), Gaps = 0/80 (0%)
+
+Query  1    SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  60
+            SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG
+Sbjct  241  SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  300
+
+Query  61   NGISQALSPSSLNTDFADNS  80
+            NGISQALSPSSLNTDFADNS
+Sbjct  301  NGISQALSPSSLNTDFADNS  320
+
+
+>6UBR_B Chain B, Uncharacterized protein
+ 6UBR_A Chain A, Uncharacterized protein
+ 6UBR_C Chain C, Uncharacterized protein
+ 6UBR_D Chain D, Uncharacterized protein
+ 6UBZ_B Chain B, Uncharacterized protein GoxA
+ 6UBZ_A Chain A, Uncharacterized protein GoxA
+ 6UBZ_C Chain C, Uncharacterized protein GoxA
+ 6UBZ_D Chain D, Uncharacterized protein GoxA
+ 6UC1_B Chain B, Uncharacterized protein GoxA
+ 6UC1_A Chain A, Uncharacterized protein GoxA
+ 6UC1_D Chain D, Uncharacterized protein GoxA
+Length=816
+
+ Score = 165 bits (417),  Expect = 6e-49, Method: Compositional matrix adjust.
+ Identities = 80/80 (100%), Positives = 80/80 (100%), Gaps = 0/80 (0%)
+
+Query  1    SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  60
+            SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG
+Sbjct  241  SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  300
+
+Query  61   NGISQALSPSSLNTDFADNS  80
+            NGISQALSPSSLNTDFADNS
+Sbjct  301  NGISQALSPSSLNTDFADNS  320
+
+
+>6UFQ_A Chain A, Glycine Oxidase GoxA
+ 6UFQ_B Chain B, Glycine Oxidase GoxA
+ 6UFQ_C Chain C, Glycine Oxidase GoxA
+ 6UFQ_D Chain D, Glycine Oxidase GoxA
+Length=816
+
+ Score = 165 bits (417),  Expect = 6e-49, Method: Compositional matrix adjust.
+ Identities = 80/80 (100%), Positives = 80/80 (100%), Gaps = 0/80 (0%)
+
+Query  1    SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  60
+            SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG
+Sbjct  241  SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  300
+
+Query  61   NGISQALSPSSLNTDFADNS  80
+            NGISQALSPSSLNTDFADNS
+Sbjct  301  NGISQALSPSSLNTDFADNS  320
+
+
+>6UC1_C Chain C, Uncharacterized protein GoxA
+Length=816
+
+ Score = 164 bits (416),  Expect = 6e-49, Method: Compositional matrix adjust.
+ Identities = 80/80 (100%), Positives = 80/80 (100%), Gaps = 0/80 (0%)
+
+Query  1    SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  60
+            SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG
+Sbjct  241  SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  300
+
+Query  61   NGISQALSPSSLNTDFADNS  80
+            NGISQALSPSSLNTDFADNS
+Sbjct  301  NGISQALSPSSLNTDFADNS  320
+
+
+>6BYW_B Chain B, Structure of GoxA from Pseudoalteromonas luteoviolacea
+ 6BYW_A Chain A, Structure of GoxA from Pseudoalteromonas luteoviolacea
+ 6BYW_C Chain C, Structure of GoxA from Pseudoalteromonas luteoviolacea
+ 6BYW_D Chain D, Structure of GoxA from Pseudoalteromonas luteoviolacea
+ 6EER_A Chain A, GoxA
+ 6EER_B Chain B, GoxA
+ 6EER_C Chain C, GoxA
+ 6EER_D Chain D, GoxA
+Length=816
+
+ Score = 164 bits (416),  Expect = 6e-49, Method: Compositional matrix adjust.
+ Identities = 80/80 (100%), Positives = 80/80 (100%), Gaps = 0/80 (0%)
+
+Query  1    SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  60
+            SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG
+Sbjct  241  SQGSVSSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  300
+
+Query  61   NGISQALSPSSLNTDFADNS  80
+            NGISQALSPSSLNTDFADNS
+Sbjct  301  NGISQALSPSSLNTDFADNS  320
+
+
+>6IWT_A Chain A, Pmethyltransferase pCOMT-S
+ 6IWT_B Chain B, Pmethyltransferase pCOMT-S
+Length=364
+
+ Score = 29.3 bits (64),  Expect = 0.41, Method: Composition-based stats.
+ Identities = 18/58 (31%), Positives = 31/58 (53%), Gaps = 1/58 (2%)
+
+Query  15   LRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIE-CDNEGVLRFYAGNGISQALSPSS  71
+            L  K P+++PDT   L  +L L   ++VL+  ++     GV R YA   + + L+ +S
+Sbjct  63   LAAKLPSSQPDTPVMLDRILRLLASYSVLKCKVQDLPQGGVERLYALAPVCKFLTKNS  120
+
+
+>2I5E_A Chain A, Crystal Structure Of A Protein Of Unknown Function Mm2497 
+From Methanosarcina Mazei Go1, Probable Nucleotidyltransferase
+ 2I5E_B Chain B, Crystal Structure Of A Protein Of Unknown Function Mm2497 
+From Methanosarcina Mazei Go1, Probable Nucleotidyltransferase
+Length=211
+
+ Score = 28.1 bits (61),  Expect = 1.1, Method: Compositional matrix adjust.
+ Identities = 20/57 (35%), Positives = 26/57 (46%), Gaps = 6/57 (11%)
+
+Query  16  RGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAGNGISQA--LSPS  70
+           R   P  +    +RLS +L+LQER       +E     V+    G GI Q   LSPS
+Sbjct  5   RAVIPYKKAGAKSRLSPVLSLQEREEF----VELXLNQVISSLKGAGIEQVDILSPS  57
+
+
+>3WFI_A Chain A, The Crystal Structure Of D-mandelate Dehydrogenase
+ 3WFI_B Chain B, The Crystal Structure Of D-mandelate Dehydrogenase
+ 3WFJ_A Chain A, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 3WFJ_B Chain B, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 3WFJ_C Chain C, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 3WFJ_D Chain D, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 3WFJ_E Chain E, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 3WFJ_F Chain F, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 3WFJ_G Chain G, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 3WFJ_H Chain H, The Complex Structure Of D-mandelate Dehydrogenase With 
+Nadh
+ 5X20_A Chain A, The ternary structure of D-mandelate dehydrogenase with 
+NADH and anilino(oxo)acetate
+ 5X20_B Chain B, The ternary structure of D-mandelate dehydrogenase with 
+NADH and anilino(oxo)acetate
+ 5X20_C Chain C, The ternary structure of D-mandelate dehydrogenase with 
+NADH and anilino(oxo)acetate
+ 5X20_D Chain D, The ternary structure of D-mandelate dehydrogenase with 
+NADH and anilino(oxo)acetate
+ 5X20_E Chain E, The ternary structure of D-mandelate dehydrogenase with 
+NADH and anilino(oxo)acetate
+ 5X20_F Chain F, The ternary structure of D-mandelate dehydrogenase with 
+NADH and anilino(oxo)acetate
+Length=312
+
+ Score = 27.7 bits (60),  Expect = 1.7, Method: Composition-based stats.
+ Identities = 14/35 (40%), Positives = 19/35 (54%), Gaps = 0/35 (0%)
+
+Query  45   GSIECDNEGVLRFYAGNGISQALSPSSLNTDFADN  79
+            GS+E  N G  +  A   ++  LS S LN  F+DN
+Sbjct  145  GSVELQNLGDGKEAAAKKLADKLSESGLNAHFSDN  179
+
+
+>1C27_A Chain A, E. Coli Methionine Aminopeptidase:norleucine Phosphonate 
+Complex
+ 1C21_A Chain A, E. Coli Methionine Aminopeptidase: Methionine Complex
+ 1C22_A Chain A, E. Coli Methionine Aminopeptidase: Trifluoromethionine 
+Complex
+ 1C23_A Chain A, E. Coli Methionine Aminopeptidase: Methionine Phosphonate 
+Complex
+ 1C24_A Chain A, E. Coli Methionine Aminopeptidase: Methionine Phosphinate 
+Complex
+Length=263
+
+ Score = 27.3 bits (59),  Expect = 1.9, Method: Composition-based stats.
+ Identities = 15/44 (34%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI Q     P  L+ D
+Sbjct  143  INLREIGAAIQKFVEAEGFSVVREYCGHGIGQGFHEEPQVLHYD  186
+
+
+>2MAT_A Chain A, E.COLI METHIONINE AMINOPEPTIDASE AT 1.9 ANGSTROM RESOLUTION
+ 1YVM_A Chain A, E. Coli Methionine Aminopeptidase In Complex With Thiabendazole
+ 4A6W_A Chain A, X-Ray Structures Of Oxazole Hydroxamate Ecmetap-Mn Complexes
+ 4PNC_A Chain A, E. Coli Methionine Aminopeptidase In Complex With Inhibitor 
+7-methoxy- 2-methylen-3,4-dihydronaphthalen-1(2h)-one
+ 6IZ7_P Chain P, Methionine aminopeptidase
+ 6IZI_Q Chain Q, Methionine aminopeptidase
+ 6J0A_P Chain P, Methionine aminopeptidase
+Length=264
+
+ Score = 27.3 bits (59),  Expect = 1.9, Method: Composition-based stats.
+ Identities = 15/44 (34%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI Q     P  L+ D
+Sbjct  144  INLREIGAAIQKFVEAEGFSVVREYCGHGIGQGFHEEPQVLHYD  187
+
+
+>3MAT_A Chain A, E.COLI METHIONINE AMINOPEPTIDASE TRANSITION-STATE INHIBITOR 
+COMPLEX
+Length=265
+
+ Score = 27.3 bits (59),  Expect = 1.9, Method: Composition-based stats.
+ Identities = 15/44 (34%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI Q     P  L+ D
+Sbjct  144  INLREIGAAIQKFVEAEGFSVVREYCGHGIGQGFHEEPQVLHYD  187
+
+
+>4MAT_A Chain A, E.COLI METHIONINE AMINOPEPTIDASE HIS79ALA MUTANT
+Length=278
+
+ Score = 27.3 bits (59),  Expect = 1.9, Method: Composition-based stats.
+ Identities = 15/44 (34%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI Q     P  L+ D
+Sbjct  144  INLREIGAAIQKFVEAEGFSVVREYCGHGIGQGFHEEPQVLHYD  187
+
+
+>3FHM_A Chain A, Crystal Structure Of The Cbs-Domain Containing Protein 
+Atu1752 From Agrobacterium Tumefaciens
+ 3FHM_B Chain B, Crystal Structure Of The Cbs-Domain Containing Protein 
+Atu1752 From Agrobacterium Tumefaciens
+ 3FHM_C Chain C, Crystal Structure Of The Cbs-Domain Containing Protein 
+Atu1752 From Agrobacterium Tumefaciens
+ 3FHM_D Chain D, Crystal Structure Of The Cbs-Domain Containing Protein 
+Atu1752 From Agrobacterium Tumefaciens
+Length=165
+
+ Score = 25.8 bits (55),  Expect = 7.0, Method: Compositional matrix adjust.
+ Identities = 12/55 (22%), Positives = 27/55 (49%), Gaps = 0/55 (0%)
+
+Query  6    SSDNNTQVPLRGKFPANEPDTNNRLSDLLNLQERHNVLQGSIECDNEGVLRFYAG  60
+            ++D   ++   G+F     + N RL+ ++++ +      G IE + E +  + AG
+Sbjct  111  TTDQLMEIMTGGRFRHVPVEENGRLAGIISIGDVVKARIGEIEAEAEHIKAYIAG  165
+
+
+>2GTX_A Chain A, Structural Basis of Catalysis by Mononuclear Methionine 
+Aminopeptidase
+ 2GTX_B Chain B, Structural Basis of Catalysis by Mononuclear Methionine 
+Aminopeptidase
+ 3D27_A Chain A, E. Coli Methionine Aminopeptidase With Fe Inhibitor 
+W29
+Length=261
+
+ Score = 25.4 bits (54),  Expect = 8.4, Method: Composition-based stats.
+ Identities = 14/44 (32%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI +     P  L+ D
+Sbjct  141  INLREIGAAIQKFVEAEGFSVVREYCGHGIGRGFHEEPQVLHYD  184
+
+
+>2P99_A Chain A, E. Coli Methionine Aminopeptidase Monometalated With 
+Inhibitor Ye6
+ 4Z7M_A Chain A, Novel Inhibitors Of Bacterial Methionine Aminopeptidase 
+With Broad- Spectrum Biochemical Activity
+ 4Z7M_B Chain B, Novel Inhibitors Of Bacterial Methionine Aminopeptidase 
+With Broad- Spectrum Biochemical Activity
+Length=261
+
+ Score = 25.4 bits (54),  Expect = 8.4, Method: Composition-based stats.
+ Identities = 14/44 (32%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI +     P  L+ D
+Sbjct  143  INLREIGAAIQKFVEAEGFSVVREYCGHGIGRGFHEEPQVLHYD  186
+
+
+>2P98_A Chain A, E. Coli Methionine Aminopeptidase Monometalated With 
+Inhibitor Ye7
+ 2P9A_A Chain A, E. Coli Methionine Aminopeptidase Dimetalated With Inhibitor 
+Ye6
+ 2Q92_A Chain A, E. Coli Methionine Aminopeptidase Mn-Form With Inhibitor 
+B23
+ 2Q94_A Chain A, E. Coli Methionine Aminopeptidase Mn-Form With Inhibitor 
+A04
+Length=262
+
+ Score = 25.4 bits (54),  Expect = 8.4, Method: Composition-based stats.
+ Identities = 14/44 (32%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI +     P  L+ D
+Sbjct  143  INLREIGAAIQKFVEAEGFSVVREYCGHGIGRGFHEEPQVLHYD  186
+
+
+>2GG0_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GG2_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GG3_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GG5_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GG7_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GG8_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GG9_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GGB_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2GGC_A Chain A, Novel Bacterial Methionine Aminopeptidase Inhibitors
+ 2Q93_A Chain A, E. Coli Methionine Aminopeptidase Mn-Form With Inhibitor 
+B21
+ 2Q95_A Chain A, E. Coli Methionine Aminopeptidase Mn-Form With Inhibitor 
+A05
+ 2Q96_A Chain A, E. Coli Methionine Aminopeptidase Mn-Form With Inhibitor 
+A18
+Length=263
+
+ Score = 25.4 bits (54),  Expect = 8.4, Method: Composition-based stats.
+ Identities = 14/44 (32%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI +     P  L+ D
+Sbjct  143  INLREIGAAIQKFVEAEGFSVVREYCGHGIGRGFHEEPQVLHYD  186
+
+
+>2GU4_A Chain A, E. Coli Methionine Aminopeptidase In Complex With Nlep, 
+1: 0.5, Di-Metalated
+ 2GU4_B Chain B, E. Coli Methionine Aminopeptidase In Complex With Nlep, 
+1: 0.5, Di-Metalated
+ 2GU5_A Chain A, E. Coli Methionine Aminopeptidase In Complex With Nlep, 
+1: 1, Di-Metalated
+ 2GU5_B Chain B, E. Coli Methionine Aminopeptidase In Complex With Nlep, 
+1: 1, Di-Metalated
+ 2GU6_A Chain A, E. Coli Methionine Aminopeptidase In Complex With Nlep, 
+1: 2, Di-metalated
+ 2GU6_B Chain B, E. Coli Methionine Aminopeptidase In Complex With Nlep, 
+1: 2, Di-metalated
+ 2GU7_A Chain A, E. Coli Methionine Aminopeptidase Unliganded, 1:0.5
+ 2GU7_B Chain B, E. Coli Methionine Aminopeptidase Unliganded, 1:0.5
+Length=263
+
+ Score = 25.4 bits (54),  Expect = 8.4, Method: Composition-based stats.
+ Identities = 14/44 (32%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI +     P  L+ D
+Sbjct  143  INLREIGAAIQKFVEAEGFSVVREYCGHGIGRGFHEEPQVLHYD  186
+
+
+>1XNZ_A Chain A, Crystal Structure Of Mn(Ii) Form Of E. Coli. Methionine 
+Aminopeptidase In Complex With 5-(2-Chlorophenyl)furan-2- 
+Carboxylic Acid
+ 2BB7_A Chain A, Mn Form Of E. Coli Methionine Aminopeptidase In Complex 
+With A Quinolinyl Sulfonamide Inhibitor
+ 2EVC_A Chain A, Crystal Structure Of E. Coli. Methionine Amino Peptidase 
+In Complex With 5-(2-(trifluoromethyl)phenyl)furan-2- Carboxylic 
+Acid
+ 2EVM_A Chain A, Crystal Structure Of Methionine Aminopeptidase In Complex 
+With 5-(2,5-Dichlorophenyl)furan-2-Carboxylic Acid
+ 2EVO_A Chain A, Crystal Structure Of Methionine Amino Peptidase In Complex 
+With N-Cyclopentyl-N-(Thiazol-2-Yl)oxalamide
+ 2EVO_B Chain B, Crystal Structure Of Methionine Amino Peptidase In Complex 
+With N-Cyclopentyl-N-(Thiazol-2-Yl)oxalamide
+ 1MAT_A Chain A, STRUCTURE OF THE COBALT-DEPENDENT METHIONINE AMINOPEPTIDASE 
+FROM ESCHERICHIA COLI: A NEW TYPE OF PROTEOLYTIC ENZYME
+Length=264
+
+ Score = 25.4 bits (54),  Expect = 8.4, Method: Composition-based stats.
+ Identities = 14/44 (32%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI +     P  L+ D
+Sbjct  144  INLREIGAAIQKFVEAEGFSVVREYCGHGIGRGFHEEPQVLHYD  187
+
+
+>4A6V_A Chain A, METHIONINE AMINOPEPTIDASE
+ 4A6V_B Chain B, METHIONINE AMINOPEPTIDASE
+Length=265
+
+ Score = 25.4 bits (54),  Expect = 8.4, Method: Composition-based stats.
+ Identities = 14/44 (32%), Positives = 23/44 (52%), Gaps = 2/44 (5%)
+
+Query  34   LNLQERHNVLQGSIECDNEGVLRFYAGNGISQAL--SPSSLNTD  75
+            +NL+E    +Q  +E +   V+R Y G+GI +     P  L+ D
+Sbjct  144  INLREIGAAIQKFVEAEGFSVVREYCGHGIGRGFHEEPQVLHYD  187
+
+
+
+Lambda      K        H        a         alpha
+   0.308    0.127    0.355    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 717596556
+
+
+  Database: PDB protein database
+    Posted date:  Oct 31, 2019  3:22 AM
+  Number of letters in database: 28,572,478
+  Number of sequences in database:  110,698
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
